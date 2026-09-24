@@ -3,62 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>punjabi toffee crush game - 6 Level</title>
+<title>Punjabi Toffee - FINAL FIXED</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800');background-size:cover;background-color:#87CEEB;min-height:100vh;padding-bottom:125px}
-.box{max-width:420px;margin:12px auto;background:rgba(255,255,255,0.96);border-radius:24px;padding:14px;border:5px solid #FF6F00;box-shadow:0 12px 24px rgba(0,0,0,.2);text-align:center}
-.btn{background:linear-gradient(90deg,#FF9800,#E65100);color:#fff;border:0;padding:14px;width:100%;border-radius:30px;font-weight:900;font-size:17px;margin-top:10px;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#FFF8E1;padding:8px;border-radius:14px;margin:10px 0}
-.c{background:#fff;border-radius:10px;height:52px;display:flex;align-items:center;justify-content:center;font-size:26px;border:2.5px solid #FFCC02;cursor:pointer}
+body{background:#FFCC80 url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900') center/cover fixed;min-height:100vh;padding-bottom:135px}
+.box{max-width:430px;margin:14px auto;background:#fffffffa;border-radius:26px;padding:16px;border:5px solid #FF6F00;text-align:center;box-shadow:0 12px 24px rgba(0,0,0,.25)}
+.btn{background:linear-gradient(90deg,#FF9800,#E65100);color:#fff;border:0;padding:15px;width:100%;border-radius:32px;font-weight:900;font-size:18px;margin-top:11px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;background:#FFF8E1;padding:10px;border-radius:16px;margin:12px 0}
+.c{background:#fff;border-radius:12px;height:58px;display:flex;align-items:center;justify-content:center;font-size:26px;border:2.5px solid #FFCC02;cursor:pointer;font-weight:800}
 .c.ok{background:#4CAF50!important;color:#fff!important}
-.fallArea{position:relative;width:100%;height:420px;background:linear-gradient(180deg,#E1F5FE,#B3E5FC);border-radius:16px;overflow:hidden;border:3px solid #03A9F4;margin:10px 0}
-.fallBubble{position:absolute;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;border:3px solid #fff;cursor:pointer;animation:fall linear forwards}
-@keyframes fall{0%{transform:translateY(-70px)}100%{transform:translateY(450px)}}
-.bar{width:100%;height:20px;background:#eee;border-radius:20px;overflow:hidden;border:2px solid #FF6F00;margin:8px 0}
-.f{height:100%;background:linear-gradient(90deg,#4CAF50,#8BC34A);width:0%;transition:0.5s}
+.bar{width:100%;height:22px;background:#eee;border-radius:22px;overflow:hidden;border:2px solid #FF6F00;margin:10px 0}
+.f{height:100%;background:linear-gradient(90deg,#4CAF50,#8BC34A);width:0%;transition:.6s}
 .hidden{display:none!important}
-#completeModal{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;z-index:99999;padding:15px}
-#completeBox{background:#fff;border-radius:28px;padding:22px;max-width:360px;width:100%;text-align:center;border:5px solid #FF6F00}
-#adBox{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:5px solid #FF6F00;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;padding:8px}
+#completeModal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;z-index:99999;padding:16px}
+#completeBox{background:#fff;border-radius:32px;padding:26px;max-width:390px;width:100%;text-align:center;border:6px solid #FF6F00}
+#adBox{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:5px solid #FF6F00;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9998;padding:6px}
 </style>
 </head>
 <body>
 <div class="box" id="menu">
-<h1 style="color:#FF6F00;font-size:36px">ਪੰਜਾਬੀ ਟਾਫੀ</h1>
-<p style="color:#E91E63;font-weight:900">6 LEVEL GAME</p>
-<div style="background:#FFF3E0;padding:10px;border-radius:12px;margin:10px 0;text-align:left;font-size:13px;border-left:5px solid #FF6F00">
-🍪 L1: Toffee Crush<br>🫧 L2: Bubble Upar Se<br>📚 L3: Ka Kha Ga<br>🔢 L4: Ginti ੧ ੨ ੩<br>🔤 L5: Shabd<br>👑 L6: FINAL BOSS
-</div>
-<button class="btn" onclick="start(1)">▶️ Level 1</button>
-<button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="start(2)">🫧 Level 2</button>
-<button class="btn" style="background:linear-gradient(90deg,#9C27B0,#4A148C)" onclick="start(3)">📚 Level 3</button>
-<button class="btn" style="background:linear-gradient(90deg,#FF5722,#BF360C)" onclick="start(4)">🔢 Level 4</button>
-<button class="btn" style="background:linear-gradient(90deg,#009688,#004D40)" onclick="start(5)">🔤 Level 5</button>
-<button class="btn" style="background:linear-gradient(90deg,#FFD700,#FF6F00);color:#000" onclick="start(6)">👑 Level 6 FINAL</button>
-<button class="btn" style="background:#4CAF50" onclick="enableSound()">🔊 Sound ON</button>
+<h1 style="color:#FF6F00;font-size:36px">\u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 \u0a1f\u0a3e\u0a2b\u0a40</h1>
+<p style="color:#E91E63;font-weight:900">6 LEVEL - AUTO VOICE</p>
+<button class="btn" onclick="start(1)">Level 1 - Toffee</button>
+<button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="start(2)">Level 2 - Bubble</button>
+<button class="btn" style="background:linear-gradient(90deg,#9C27B0,#4A148C)" onclick="start(3)">Level 3 - Ka Kha Ga</button>
+<button class="btn" style="background:linear-gradient(90deg,#FF5722,#BF360C)" onclick="start(4)">Level 4 - Ginti</button>
+<button class="btn" style="background:linear-gradient(90deg,#009688,#004D40)" onclick="start(5)">Level 5 - Shabd</button>
+<button class="btn" style="background:linear-gradient(90deg,#FFD700,#FF6F00);color:#000" onclick="start(6)">FINAL BOSS</button>
 </div>
 <div class="box hidden" id="game">
 <div style="display:flex;justify-content:space-between;font-weight:900"><span id="lv">Level 1</span><span id="sc" style="color:#E91E63">0/9</span></div>
 <div class="bar"><div id="pf" class="f"></div></div>
-<p id="msg" style="color:#E91E63;font-weight:900;margin:6px 0"></p>
+<p id="msg" style="color:#E91E63;font-weight:900;margin:8px 0"></p>
 <div id="area"></div>
-<button class="btn" style="background:#2196F3" onclick="goNext()">⏭️ Next</button>
-<button class="btn" style="background:#9E9E9E" onclick="showMenu()">⬅️ Menu</button>
+<button class="btn" style="background:#2196F3" onclick="goNext()">Next Level</button>
+<button class="btn" style="background:#9E9E9E" onclick="showMenu()">Menu</button>
 </div>
-<div id="completeModal" class="hidden"><div id="completeBox"><div style="font-size:40px">🎉</div><h2 style="color:#FF6F00">ਸ਼ਾਬਾਸ਼ ਜੀ! 🎉</h2><p id="completeText">Level Complete!</p><p style="font-size:22px;margin:8px 0">⭐⭐⭐</p><button class="btn" style="background:#4CAF50" onclick="goNext()">⏭️ Next</button><button class="btn" style="background:#2196F3" onclick="showMenu()">🏠 Menu</button><button class="btn" style="background:#FF9800" onclick="replayNow()">🔄 Replay</button></div></div>
-<div id="adBox"><p style="font-size:11px;color:#999">🙏 Ad - Support</p><ins class="adsbygoogle" style="display:inline-block;width:320px;height:90px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div id="completeModal" class="hidden"><div id="completeBox">
+<div style="font-size:60px" id="modalEmoji">\uD83C\uDF89</div>
+<h2 style="color:#FF6F00" id="modalTitle">Shabaash Ji!</h2>
+<p id="completeText" style="font-size:19px;font-weight:800">Level Complete!</p>
+<p style="font-size:30px">\u2B50\u2B50\u2B50</p>
+<div id="nextPreview" style="background:#E8F5E9;border:2px dashed #4CAF50;border-radius:12px;padding:10px;margin:10px 0;font-weight:800;color:#2E7D32"></div>
+<div id="normalBtns">
+<button class="btn" style="background:#4CAF50;font-size:20px" onclick="goNext()">Next Level -></button>
+<button class="btn" style="background:#FF9800" onclick="replayNow()">Replay</button>
+<button class="btn" style="background:#9E9E9E" onclick="showMenu()">Menu</button>
+</div>
+<div id="finalBtns" class="hidden">
+<button class="btn" style="background:#4CAF50" onclick="showMenu()">Main Menu</button>
+<button class="btn" style="background:#FFD700;color:#000" onclick="start(1)">Fir Se Khelo</button>
+</div>
+</div></div>
+<div id="adBox">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
 <script>
-let level=1,score=0,sel=[],board=[],ac,soundOn=false,fallInterval;
-function enableSound(){soundOn=true;if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();tone(800);alert('🔊 Sound ON!');}
-function tone(f){if(!soundOn)return;try{if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();let o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.frequency.value=f;g.gain.setValueAtTime(0.35,ac.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ac.currentTime+0.35);o.start();o.stop(ac.currentTime+0.35);}catch(e){}}
-function showMenu(){clearInterval(fallInterval);document.getElementById('completeModal').classList.add('hidden');document.getElementById('menu').classList.remove('hidden');document.getElementById('game').classList.add('hidden');}
-function start(l){level=l;soundOn=true;if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();document.getElementById('menu').classList.add('hidden');document.getElementById('game').classList.remove('hidden');tone(800);make();}
-function goNext(){document.getElementById('completeModal').classList.add('hidden');clearInterval(fallInterval);level++;if(level>6){level=1;showMenu();alert('🏆 SARE LEVEL WIN! 🏆');return;}make();}
+let level=1,score=0,sel=[],board=[],ac,fallInterval;
+function speak(t){try{window.speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='hi-IN';u.rate=0.9;u.volume=1;speechSynthesis.speak(u);}catch(e){}}
+function tone(f){try{if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();let o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.frequency.value=f;g.gain.setValueAtTime(.5,ac.currentTime);g.gain.exponentialRampToValueAtTime(.01,ac.currentTime+.35);o.start();o.stop(ac.currentTime+.35);}catch(e){}}
+function showMenu(){clearInterval(fallInterval);try{speechSynthesis.cancel();}catch(e){}document.getElementById('completeModal').classList.add('hidden');document.getElementById('menu').classList.remove('hidden');document.getElementById('game').classList.add('hidden');}
+function start(l){level=l;try{if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();}catch(e){}document.getElementById('menu').classList.add('hidden');document.getElementById('game').classList.remove('hidden');tone(800);let m={1:'Level ek',2:'Level do',3:'Ka Kha Ga',4:'Ginti',5:'Maa paani ghar',6:'Final boss'};speak(m[l]);make();}
+function goNext(){document.getElementById('completeModal').classList.add('hidden');clearInterval(fallInterval);level++;if(level>6){document.getElementById('modalEmoji').innerText="\uD83C\uDFC6";document.getElementById('modalTitle').innerText="Champion!";document.getElementById('completeText').innerText="SARE 6 LEVEL WIN!";document.getElementById('nextPreview').innerText="Aap Champion ho!";document.getElementById('normalBtns').classList.add('hidden');document.getElementById('finalBtns').classList.remove('hidden');document.getElementById('completeModal').classList.remove('hidden');speak('Saare level jeet liye, champion ban gaye');return;}make();}
 function replayNow(){document.getElementById('completeModal').classList.add('hidden');make();}
-function showComplete(t){document.getElementById('completeText').innerText=t;document.getElementById('completeModal').classList.remove('hidden');tone(1200);setTimeout(()=>tone(1000),200);setTimeout(()=>tone(1300),400);}
-function make(){clearInterval(fallInterval);let area=document.getElementById('area');area.innerHTML='';sel=[];score=0;document.getElementById('lv').innerText='Level '+level;document.getElementById('sc').innerText='0/9';document.getElementById('pf').style.width='0%';if(level==1){document.getElementById('msg').innerText='3 same toffee chuno 🍪';let icons=["🍪","🍩","🧁"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);board=p;let g=document.createElement('div');g.className='grid';for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.onclick=function(){if(this.classList.contains('ok'))return;tone(600);this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){tone(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 1 Done! 🎉"),500);}else{tone(200);let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},350);sel=[];}}};g.appendChild(d);}area.appendChild(g);}else if(level==2){document.getElementById('msg').innerText='Upar Se Gir Raha! ੳ ਅ ੲ Phodo 🫧';let target=["ੳ","ਅ","ੲ"],all=["ੳ","ਅ","ੲ","ਸ","ਹ"],fallArea=document.createElement('div');fallArea.className='fallArea';area.appendChild(fallArea);fallInterval=setInterval(()=>{if(score>=9){clearInterval(fallInterval);return;}let ch=all[Math.floor(Math.random()*all.length)];let b=document.createElement('div');b.className='fallBubble';b.innerText=ch;b.style.left=Math.random()*78+'%';b.style.background=target.includes(ch)?'radial-gradient(circle at 30% 30%,#C8E6C9,#4CAF50,#2E7D32)':'radial-gradient(circle at 30% 30%,#E1F5FE,#03A9F4,#01579B)';b.style.animationDuration=(3+Math.random()*2)+'s';b.onclick=function(){if(target.includes(ch)){tone(900);this.innerText='✅';this.style.background='#4CAF50';score++;upd();setTimeout(()=>{this.remove();},200);if(score>=9){clearInterval(fallInterval);setTimeout(()=>showComplete("Level 2 Done! 🎉"),500);}}else{tone(200);this.style.opacity='0.2';}};fallArea.appendChild(b);setTimeout(()=>{if(b.parentNode)b.remove();},5000);},650);}else if(level==3){document.getElementById('msg').innerText='ਕ ਖ ਗ - Akhar 📚';let icons=["ਕ","ਖ","ਗ"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);board=p;let g=document.createElement('div');g.className='grid';for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.onclick=function(){if(this.classList.contains('ok'))return;tone(600);this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){tone(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 3 Done! 📚"),500);}else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},350);sel=[];}}};g.appendChild(d);}area.appendChild(g);}else if(level==4){document.getElementById('msg').innerText='੧ ੨ ੩ Ginti! 🔢';let icons=["੧","੨","੩"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);board=p;let g=document.createElement('div');g.className='grid';for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.onclick=function(){if(this.classList.contains('ok'))return;tone(600);this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){tone(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 4 Done! 🔢"),500);}else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},350);sel=[];}}};g.appendChild(d);}area.appendChild(g);}else if(level==5){document.getElementById('msg').innerText='Shabd - ਮਾਂ ਪਾਣੀ ਘਰ 🔤';let icons=["ਮਾਂ","ਪਾਣੀ","ਘਰ"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);board=p;let g=document.createElement('div');g.className='grid';for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.style.fontSize='18px';d.onclick=function(){if(this.classList.contains('ok'))return;tone(600);this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){tone(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 5 Done! 🔤"),500);}else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},350);sel=[];}}};g.appendChild(d);}area.appendChild(g);}else if(level==6){document.getElementById('msg').innerText='👑 FINAL BOSS! Tez Speed!';let target=["ੳ","ਕ","੧","🍪"],all=["ੳ","ਅ","ਕ","ਖ","੧","੨","🍪","🍩"],fallArea=document.createElement('div');fallArea.className='fallArea';area.appendChild(fallArea);fallArea.style.height='450px';fallInterval=setInterval(()=>{if(score>=9){clearInterval(fallInterval);return;}let ch=all[Math.floor(Math.random()*all.length)];let b=document.createElement('div');b.className='fallBubble';b.innerText=ch;b.style.left=Math.random()*78+'%';b.style.background=target.includes(ch)?'radial-gradient(circle at 30% 30%,#FFEB3B,#FF9800,#E65100)':'radial-gradient(circle at 30% 30%,#E1F5FE,#03A9F4,#01579B)';b.style.animationDuration=(1.5+Math.random()*1.5)+'s';b.onclick=function(){if(target.includes(ch)){tone(1000);this.innerText='✅';this.style.background='#4CAF50';score++;upd();setTimeout(()=>{this.remove();},200);if(score>=9){clearInterval(fallInterval);setTimeout(()=>showComplete("👑 FINAL WINNER! 🏆"),500);}}else{tone(150);this.style.opacity='0.2';}};fallArea.appendChild(b);setTimeout(()=>{if(b.parentNode)b.remove();},4000);},400);}}function upd(){document.getElementById('sc').innerText=score+'/9';document.getElementById('pf').style.width=score/9*100+'%';}
+function showComplete(t){document.getElementById('modalEmoji').innerText="\uD83C\uDF89";document.getElementById('modalTitle').innerText="Shabaash Ji!";document.getElementById('completeText').innerText=t;let nextL=level+1;let names={2:'Level 2 Bubble',3:'Level 3 Ka Kha Ga',4:'Level 4 Ginti',5:'Level 5 Shabd',6:'FINAL BOSS'};let np=document.getElementById('nextPreview');if(nextL<=6)np.innerText="Next: "+names[nextL];else np.innerText="Last Level";document.getElementById('normalBtns').classList.remove('hidden');document.getElementById('finalBtns').classList.add('hidden');document.getElementById('completeModal').classList.remove('hidden');tone(1250);speak('Shabaash ji, '+t);}
+function make(){
+ clearInterval(fallInterval);
+ let area=document.getElementById('area');area.innerHTML='';sel=[];score=0;
+ document.getElementById('lv').innerText='Level '+level;
+ document.getElementById('sc').innerText='0/9';
+ document.getElementById('pf').style.width='0%';
+ document.getElementById('completeModal').classList.add('hidden');
+ if(level==1){
+  document.getElementById('msg').innerText='3 same toffee chuno';
+  let icons=["\uD83C\uDF6A","\uD83C\uDF69","\uD83E\uDDC1"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-.5);board=p;
+  let g=document.createElement('div');g.className='grid';
+  for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.onclick=function(){if(this.classList.contains('ok'))return;tone(650);this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){tone(950);speak('Toffee');sel.forEach(s=>{all[s].innerText='\u2705';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 1 Complete!"),600);}else{tone(180);let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},380);sel=[];}}};g.appendChild(d);}area.appendChild(g);
+ }else if(level==3){
+  document.getElementById('msg').innerText='Ka Kha Ga';
+  let icons=["\u0A15","\u0A16","\u0A17"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-.5);board=p;
+  let g=document.createElement('div');g.className='grid';
+  for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.onclick=function(){if(this.classList.contains('ok'))return;tone(650);speak(this.innerText);this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){tone(950);speak(a);sel.forEach(s=>{all[s].innerText='\u2705';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 3 Complete!"),600);}else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},380);sel=[];}}};g.appendChild(d);}area.appendChild(g);
+ }else if(level==4){
+  document.getElementById('msg').innerText='Ginti 1 2 3';
+  let icons=["\u0A67","\u0A68","\u0A69"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-.5);board=p;
+  let g=document.createElement('div');g.className='grid';
+  for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.onclick=function(){if(this.classList.contains('ok'))return;tone(650);speak(this.innerText=='\u0A67'?'Ek':this.innerText=='\u0A68'?'Do':'Teen');this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){tone(950);speak(a=='\u0A67'?'Ek':a=='\u0A68'?'Do':'Teen');sel.forEach(s=>{all[s].innerText='\u2705';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 4 Complete!"),600);}else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},380);sel=[];}}};g.appendChild(d);}area.appendChild(g);
+ }else if(level==5){
+  document.getElementById('msg').innerText='Maa Paani Ghar - Bolega';
+  let icons=["\u0A2E\u0A3E\u0A02","\u0A2A\u0A3E\u0A23\u0A40","\u0A18\u0A30"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-.5);board=p;
+  let g=document.createElement('div');g.className='grid';
+  for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.style.fontSize='18px';d.onclick=function(){if(this.classList.contains('ok'))return;tone(650);speak(this.innerText);this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){tone(950);speak(a);sel.forEach(s=>{all[s].innerText='\u2705';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 5 Complete!"),600);}else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},380);sel=[];}}};g.appendChild(d);}area.appendChild(g);
+ }else{
+  // Level 2 and 6 bubble - simplified
+  document.getElementById('msg').innerText='Bubble Phodo';
+  let target=["\u0A05","\u0A15","\u0A67"],all=["\u0A05","\u0A06","\u0A15","\u0A16","\u0A67","\u0A68","\uD83C\uDF6A"],fa=document.createElement('div');fa.className='fallArea';area.appendChild(fa);
+  fa.style.height='450px';
+  fallInterval=setInterval(()=>{if(score>=9){clearInterval(fallInterval);return;}let ch=all[Math.floor(Math.random()*all.length)];let b=document.createElement('div');b.className='fallBubble';b.innerText=ch;b.style.left=Math.random()*78+'%';b.style.background=target.includes(ch)?'radial-gradient(circle at 30% 30%,#FFEB3B,#FF9800,#E65100)':'radial-gradient(circle at 30% 30%,#E1F5FE,#03A9F4,#01579B)';b.style.animationDuration=(level==6?1.5:3)+Math.random()*1.5+'s';b.onclick=function(){if(target.includes(ch)){tone(950);speak(ch);this.innerText='\u2705';this.style.background='#4CAF50';score++;upd();setTimeout(()=>this.remove(),200);if(score>=9){clearInterval(fallInterval);setTimeout(()=>{if(level==6){document.getElementById('modalEmoji').innerText="\uD83C\uDFC6";document.getElementById('modalTitle').innerText="FINAL WINNER!";document.getElementById('completeText').innerText="FINAL BOSS WIN!";document.getElementById('nextPreview').innerText="Champion!";document.getElementById('normalBtns').classList.add('hidden');document.getElementById('finalBtns').classList.remove('hidden');document.getElementById('completeModal').classList.remove('hidden');speak('Final winner');}else showComplete("Level "+level+" Complete!");},700);}}else{tone(150);this.style.opacity='.25';}};fa.appendChild(b);setTimeout(()=>{if(b.parentNode)b.remove();},4000);},level==6?380:700);
+ }
+}
+function upd(){document.getElementById('sc').innerText=score+'/9';document.getElementById('pf').style.width=score/9*100+'%';}
 </script>
 </body>
 </html>
