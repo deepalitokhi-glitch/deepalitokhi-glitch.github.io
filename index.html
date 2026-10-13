@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,56 +9,98 @@
 <style>
 body{font-family:Arial;text-align:center;background:#fff8e1;margin:0;padding:10px}
 h1{color:#e65100}
-.box{max-width:500px;margin:auto;background:white;padding:15px;border-radius:15px;box-shadow:0 4px 10px #ccc}
-.btn{width:100%;padding:12px;margin:6px 0;background:#ff9800;color:white;border:0;border-radius:8px;font-size:16px}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-top:15px}
-.cell{height:48px;background:#ffe0b2;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold}
-a{color:#e65100;text-decoration:none}
+.gameBox{max-width:480px;margin:15px auto;background:#fff;padding:15px;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.levelBtn{width:100%;padding:13px;margin:7px 0;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+.unlocked{background:#ff9800;color:#fff}
+.locked{background:#bdbdbd;color:#666;cursor:not-allowed}
+#score{display:none;margin-top:12px;font-weight:bold;font-size:18px}
+.grid{display:none;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
+.cell{height:50px;background:#ffe0b2;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;cursor:pointer}
+.aboutBox{max-width:700px;margin:35px auto;text-align:left;background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.aboutBox h2{color:#e65100;margin-top:0}
 </style>
 </head>
 <body>
 <h1>🍬 Punjabi Toffee Crush 🍬</h1>
-<p>Learn Punjabi Gurmukhi with Fun - By Deepali Tokhi, Delhi</p>
+<p>By Deepali Tokhi, Delhi</p>
 
-<div class="box">
-<button class="btn" onclick="startLevel(1)">Level 1 - Toffee Match</button>
-<button class="btn" onclick="startLevel(2)">Level 2 - Bindi Fall ੳ ਅ ੲ</button>
-<button class="btn" onclick="startLevel(3)">Level 3 - Akhar Match ਕ ਖ ਗ</button>
-<button class="btn" onclick="startLevel(4)">Level 4 - Numbers ੧ ੨ ੩</button>
-<button class="btn" onclick="startLevel(5)">Level 5 - Words ਮਾਂ ਪਾਣੀ</button>
-<button class="btn" onclick="startLevel(6)">Level 6 - Mix Master</button>
+<div class="gameBox">
+<button id="btn1" class="levelBtn unlocked" onclick="startGame(1)">Level 1 - Toffee Match 🔓</button>
+<button id="btn2" class="levelBtn locked" onclick="tryLevel(2)">Level 2 - Bindi ੳ ਅ ੲ 🔒 Locked</button>
+<button id="btn3" class="levelBtn locked" onclick="tryLevel(3)">Level 3 - Akhar ਕ ਖ ਗ 🔒 Locked</button>
+<button id="btn4" class="levelBtn locked" onclick="tryLevel(4)">Level 4 - Numbers ੧ ੨ ੩ 🔒 Locked</button>
+<button id="btn5" class="levelBtn locked" onclick="tryLevel(5)">Level 5 - Words ਮਾਂ ਪਾਣੀ 🔒 Locked</button>
+<button id="btn6" class="levelBtn locked" onclick="tryLevel(6)">Level 6 - Mix Master 🔒 Locked</button>
 
-<div id="score" style="margin-top:12px;font-weight:bold">Score: 0</div>
+<div id="score">Score: 0</div>
 <div id="grid" class="grid"></div>
 <p id="msg" style="color:green;font-weight:bold"></p>
+<p id="unlockMsg" style="color:#e65100;font-weight:bold"></p>
 </div>
 
-<div style="max-width:700px;margin:20px auto;text-align:left;background:white;padding:15px;border-radius:10px">
+<div class="aboutBox">
 <h2>About This Game</h2>
-<p>Punjabi Toffee Crush is a free educational game made by Deepali Tokhi from Delhi for kids age 3-10. Learn Gurmukhi ੳ ਅ ੲ, Akhar ਕ ਖ ਗ, Numbers ੧ ੨ ੩. No login, no data, 100% safe.</p>
-<p><a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact Us</a> | <a href="blog.html">Blog - Learning Tips</a></p>
+<p><b>Punjabi Toffee Crush</b> by <b>Deepali Tokhi</b> for kids 3-10. Learn Gurmukhi ੳ ਅ ੲ, ਕ ਖ ਗ, ੧ ੨ ੩. 100% safe, no login.</p>
+<p style="text-align:center"><a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="contact.html">Contact</a> | <a href="blog.html">Blog</a></p>
 </div>
-
-<p style="font-size:12px;color:#666">Made with ❤️ by Deepali Tokhi<br>Contact: deepali.tokhi.game@gmail.com<br>© 2026 Punjabi Toffee Crush</p>
 
 <script>
-let score=0;
-let letters=["ੳ","ਅ","ੲ","ਕ","ਖ","ਗ","ਘ","੧","੨","੩","ਮਾਂ","ਪਾਣੀ"];
-function startLevel(l){
- document.getElementById("msg").innerText="Level "+l+" Started - ਸ਼ਾਬਾਸ਼!";
- score=0; updateScore(); makeGrid();
+let score = 0;
+let currentLevel = 1;
+let maxUnlocked = localStorage.getItem("punjabiLevel") ? parseInt(localStorage.getItem("punjabiLevel")) : 1;
+let letters = ["ੳ","ਅ","ੲ","ਕ","ਖ","ਗ","੧","੨","੩","ਮਾਂ"];
+
+function updateLocks(){
+  for(let i=1;i<=6;i++){
+    let b = document.getElementById("btn"+i);
+    if(i <= maxUnlocked){
+      b.className = "levelBtn unlocked";
+      b.innerText = b.innerText.replace(" 🔒 Locked","").replace(" 🔓","") + " 🔓";
+    } else {
+      b.className = "levelBtn locked";
+      if(!b.innerText.includes("Locked")) b.innerText += " 🔒 Locked";
+    }
+  }
 }
-function makeGrid(){
- let g=document.getElementById("grid"); g.innerHTML="";
- for(let i=0;i<24;i++){
-  let d=document.createElement("div"); d.className="cell";
-  d.innerText=letters[Math.floor(Math.random()*letters.length)];
-  d.onclick=function(){this.style.background="#a5d6a7";score+=10;updateScore();};
-  g.appendChild(d);
- }
+
+function tryLevel(l){
+  if(l > maxUnlocked){
+    document.getElementById("msg").innerText = "🔒 Pehle Level " + (l-1) + " complete karo! 50 score chahiye!";
+    return;
+  }
+  startGame(l);
 }
-function updateScore(){document.getElementById("score").innerText="Score: "+score;}
-makeGrid();
+
+function startGame(level){
+  currentLevel = level;
+  let grid = document.getElementById("grid");
+  let scoreDiv = document.getElementById("score");
+  grid.style.display = "grid";
+  scoreDiv.style.display = "block";
+  document.getElementById("msg").innerText = "Level " + level + " Started - ਸ਼ਾਬਾਸ਼!";
+  score = 0;
+  scoreDiv.innerText = "Score: 0";
+  grid.innerHTML = "";
+  for(let i=0;i<24;i++){
+    let cell = document.createElement("div");
+    cell.className = "cell";
+    cell.innerText = letters[Math.floor(Math.random()*letters.length)];
+    cell.onclick = function(){
+      this.style.background = "#a5d6a7";
+      score += 10;
+      document.getElementById("score").innerText = "Score: " + score;
+      if(score >= 50 && currentLevel == maxUnlocked && maxUnlocked < 6){
+        maxUnlocked++;
+        localStorage.setItem("punjabiLevel", maxUnlocked);
+        document.getElementById("unlockMsg").innerText = "🎉 Wow! Level " + maxUnlocked + " Unlock Ho Gaya!";
+        updateLocks();
+      }
+    };
+    grid.appendChild(cell);
+  }
+}
+
+updateLocks();
 </script>
 </body>
 </html>
