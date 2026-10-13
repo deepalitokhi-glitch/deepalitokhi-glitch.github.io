@@ -8,101 +8,84 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
 body{margin:0;background:#ffb84d;font-family:Arial;text-align:center;padding:10px}
-.titleBox{max-width:500px;margin:15px auto;background:#fff;border:4px solid #ff6f00;border-radius:20px;padding:18px;box-shadow:0 6px 15px rgba(0,0,0,.2)}
-.titleBox h1{margin:0;color:#ff6f00;font-size:42px;font-weight:900}
-.lockText{color:#e91e63;font-weight:bold;margin:8px 0;font-size:16px}
-.levelBtn{width:100%;padding:16px;margin:8px 0;border:none;border-radius:30px;font-size:18px;font-weight:bold;color:#fff;cursor:pointer;box-shadow:0 3px 6px rgba(0,0,0,.2)}
-.l1{background:linear-gradient(90deg,#ff9800,#ff5722)}
-.l2{background:linear-gradient(90deg,#03a9f4,#0d47a1)}
-.l3{background:linear-gradient(90deg,#9c27b0,#4a148c)}
-.l4{background:linear-gradient(90deg,#ff5722,#bf360c)}
-.l5{background:linear-gradient(90deg,#009688,#004d40)}
-.final{background:linear-gradient(90deg,#ffeb3b,#ff9800);color:#5d4037}
-.reset{background:#78909c;color:#fff}
-.locked{opacity:.6}
+.mainBox{max-width:500px;margin:15px auto;background:#fff;border:4px solid #ff6f00;border-radius:22px;padding:18px}
+.mainBox h1{margin:0;color:#ff6f00;font-size:42px}
+.lockTxt{color:#e91e63;font-weight:bold;margin:8px 0}
+.btn{width:100%;padding:16px;margin:8px 0;border:none;border-radius:30px;font-size:18px;font-weight:bold;color:#fff;cursor:pointer}
+.b1{background:linear-gradient(90deg,#ff9800,#ff5722)}.b2{background:linear-gradient(90deg,#03a9f4,#0d47a1)}
+.b3{background:linear-gradient(90deg,#9c27b0,#4a148c)}.b4{background:linear-gradient(90deg,#ff5722,#bf360c)}
+.b5{background:linear-gradient(90deg,#009688,#004d40)}.bFinal{background:linear-gradient(90deg,#ffeb3b,#ff9800);color:#5d4037}
+.bReset{background:#78909c}
+.locked{opacity:.5;cursor:not-allowed}
 .grid{display:none;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:15px}
-.cell{height:50px;background:#ffe0b2;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold}
-.footer{max-width:500px;margin:20px auto;background:#212121;color:#fff;padding:15px;border-radius:15px}
-.footer a{color:#ffeb3b;text-decoration:none;margin:0 5px}
+.cell{height:50px;background:#ffe0b2;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold;cursor:pointer}
+.footer{max-width:500px;margin:18px auto;background:#212121;color:#fff;padding:14px;border-radius:14px}
+.footer a{color:#ffeb3b;text-decoration:none;margin:0 6px}
 </style>
 </head>
 <body>
-
-<div class="titleBox">
+<div class="mainBox">
 <h1>ਪੰਜਾਬੀ ਟਾਫੀ</h1>
-<div class="lockText">Lock System - Level win karke kholo 🔒</div>
+<div class="lockTxt">Lock System - Level win karke kholo 🔒</div>
 
-<div id="list">
-<button id="b1" class="levelBtn l1" onclick="openL(1)">Level 1 - Toffee 🍪 ✅</button>
-<button id="b2" class="levelBtn l2" onclick="openL(2)">Level 2 - ੳ ਅ ੲ 🔊 ✅</button>
-<button id="b3" class="levelBtn l3" onclick="openL(3)">Level 3 - ਕ ਖ ਗ ✅</button>
-<button id="b4" class="levelBtn l4" onclick="openL(4)">Level 4 - ੧ ੨ ੩ ✅</button>
-<button id="b5" class="levelBtn l5" onclick="openL(5)">Level 5 - ਸ਼ਬਦ ✅</button>
-<button id="b6" class="levelBtn final" onclick="openL(6)">FINAL BOSS 👑</button>
-<button class="levelBtn reset" onclick="resetGame()">Reset Game 🔄</button>
+<div id="menu">
+<button id="btn1" class="btn b1" onclick="openL(1)">Level 1 - Toffee 🍪 ✅</button>
+<button id="btn2" class="btn b2 locked" onclick="openL(2)">Level 2 - ੳ ਅ ੲ 🔊 🔒</button>
+<button id="btn3" class="btn b3 locked" onclick="openL(3)">Level 3 - ਕ ਖ ਗ 🔒</button>
+<button id="btn4" class="btn b4 locked" onclick="openL(4)">Level 4 - ੧ ੨ ੩ 🔒</button>
+<button id="btn5" class="btn b5 locked" onclick="openL(5)">Level 5 - ਸ਼ਬਦ 🔒</button>
+<button id="btn6" class="btn bFinal locked" onclick="openL(6)">FINAL BOSS 👑 🔒</button>
+<button class="btn bReset" onclick="resetG()">Reset Game 🔄</button>
 </div>
 
-<div id="gameArea" style="display:none">
-<h3 id="ltitle" style="color:#e65100"></h3>
-<div id="score" style="font-weight:bold;background:#fff3e0;padding:8px;border-radius:8px">Score: 0</div>
-<div id="grid" class="grid"></div>
-<button class="levelBtn reset" style="margin-top:12px" onclick="goBack()">⬅ Back</button>
-<p id="msg" style="color:green;font-weight:bold"></p>
+<div id="game" style="display:none">
+<h3 id="gTitle" style="color:#e65100"></h3>
+<div id="gScore" style="font-weight:bold;background:#fff3e0;padding:8px;border-radius:8px">Score: 0</div>
+<div id="gGrid" class="grid"></div>
+<p id="gMsg" style="color:green;font-weight:bold"></p>
+<button class="btn bReset" onclick="back()">⬅ Back to Menu</button>
 </div>
-
 </div>
 
 <div class="footer">
 <a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact Us</a>
-<div style="font-size:12px;color:#aaa;margin-top:8px">© 2026 Punjabi Toffee Crush - Made with Love for Punjab</div>
+<div style="font-size:11px;color:#aaa;margin-top:6px">© 2026 Punjabi Toffee Crush - Made with Love for Punjab</div>
 </div>
-<div style="text-align:left"><a href="blog.html">Blog</a></div>
+<div style="text-align:left;padding:8px"><a href="blog.html">Blog</a></div>
 
 <script>
-const LV={
-1:["🍬","🍭","🍫","🍪","🧁","🍬"],
-2:["ੳ","ਅ","ੲ","ਸ","ਹ","ੳ"],
-3:["ਕ","ਖ","ਗ","ਘ","ਙ","ਚ"],
-4:["੧","੨","੩","੪","੫","੬"],
-5:["ਮਾਂ","ਪਾਣੀ","ਘਰ","ਦਿਲ","ਰੱਬ","ਸੂਰਜ"],
-6:["ੳ","ਕ","੧","ਮਾਂ","ਗ","੨","ਪਾਣੀ","🍬","👑"]
-};
-let sc=0, cur=1;
-let maxUnlock=parseInt(localStorage.getItem("punjabi_unlock")||"6");
-function updateLock(){
+const LV={1:["🍬","🍭","🍫","🍪","🧁"],2:["ੳ","ਅ","ੲ","ਸ","ਹ"],3:["ਕ","ਖ","ਗ","ਘ","ਙ","ਚ"],4:["੧","੨","੩","੪","੫","੬"],5:["ਮਾਂ","ਪਾਣੀ","ਘਰ","ਦਿਲ","ਰੱਬ"],6:["ੳ","ਕ","੧","ਮਾਂ","👑","ਗ","੨"]};
+let score=0, cur=1, maxU=parseInt(localStorage.getItem("punjabi_unlock")||"1");
+function updateBtn(){
  for(let i=1;i<=6;i++){
-  let b=document.getElementById("b"+i);
-  if(i<=maxUnlock){b.classList.remove("locked");}
-  else{b.classList.add("locked");b.innerHTML=b.innerHTML.replace("✅","🔒");}
+  let b=document.getElementById("btn"+i);
+  if(i<=maxU){b.classList.remove("locked"); b.innerHTML=b.innerHTML.replace("🔒","✅");}
+  else{b.classList.add("locked"); if(!b.innerHTML.includes("🔒")) b.innerHTML=b.innerHTML.replace("✅","🔒");}
  }
 }
 function openL(l){
- if(l>maxUnlock){alert("🔒 Pehle Level "+(l-1)+" win karo!");return;}
- cur=l; sc=0;
- document.getElementById("list").style.display="none";
- document.getElementById("gameArea").style.display="block";
- document.getElementById("ltitle").innerText="Level "+l+" Playing";
- document.getElementById("score").innerText="Score: 0";
- document.getElementById("msg").innerText="";
- let g=document.getElementById("grid"); g.style.display="grid"; g.innerHTML="";
- let letters=LV[l];
+ if(l>maxU){alert("🔒 Pehle Level "+(l-1)+" complete karo - 50 score chahiye!");return;}
+ cur=l; score=0;
+ document.getElementById("menu").style.display="none";
+ document.getElementById("game").style.display="block";
+ document.getElementById("gTitle").innerText="Level "+l+" - ਸ਼ਾਬਾਸ਼!";
+ document.getElementById("gScore").innerText="Score: 0";
+ document.getElementById("gMsg").innerText="";
+ let g=document.getElementById("gGrid"); g.style.display="grid"; g.innerHTML="";
+ let arr=LV[l];
  for(let i=0;i<24;i++){
-  let d=document.createElement("div"); d.className="cell"; d.innerText=letters[Math.floor(Math.random()*letters.length)];
-  d.onclick=function(){this.style.background="#a5d6a7"; sc+=10; document.getElementById("score").innerText="Score: "+sc;
-   if(sc>=50 && cur===maxUnlock && maxUnlock<6){maxUnlock++; localStorage.setItem("punjabi_unlock",maxUnlock); document.getElementById("msg").innerText="🎉 Level "+maxUnlock+" Unlock!"; updateLock();}
+  let d=document.createElement("div"); d.className="cell"; d.innerText=arr[Math.floor(Math.random()*arr.length)];
+  d.onclick=function(){
+   if(this.style.background=="rgb(165, 214, 167)") return;
+   this.style.background="#a5d6a7"; score+=10; document.getElementById("gScore").innerText="Score: "+score;
+   if(score>=50 && cur===maxU && maxU<6){maxU++; localStorage.setItem("punjabi_unlock",maxU); document.getElementById("gMsg").innerText="🎉 Level "+maxU+" Unlock ho gaya! Back jao!"; updateBtn();}
   };
   g.appendChild(d);
  }
 }
-function goBack(){
- document.getElementById("list").style.display="block";
- document.getElementById("gameArea").style.display="none";
-}
-function resetGame(){
- localStorage.setItem("punjabi_unlock","1");
- maxUnlock=1; updateLock(); alert("Game Reset!");
-}
-updateLock();
+function back(){document.getElementById("menu").style.display="block";document.getElementById("game").style.display="none";}
+function resetG(){localStorage.setItem("punjabi_unlock","1");maxU=1;updateBtn();alert("Game Reset - Sirf Level 1 khula hai ab");}
+updateBtn();
 </script>
 </body>
 </html>
