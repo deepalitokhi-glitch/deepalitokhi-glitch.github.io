@@ -7,79 +7,90 @@
 <meta name="google-adsense-account" content="ca-pub-1905215538239803">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
-body{font-family:Arial;text-align:center;background:#fff8e1;margin:0;padding:10px}
-h1{color:#e65100}
-.gameBox{max-width:480px;margin:15px auto;background:#fff;padding:15px;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.levelBtn{width:100%;padding:13px;margin:7px 0;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+body{margin:0;padding:10px;background:#fff8e1;font-family:Arial;text-align:center}
+h1{color:#e65100;margin-bottom:5px}
+.gameBox{max-width:480px;margin:15px auto;background:#fff;padding:18px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.levelBtn{width:100%;padding:14px;margin:7px 0;border:none;border-radius:10px;font-size:16px;cursor:pointer}
 .unlocked{background:#ff9800;color:#fff}
-.locked{background:#bdbdbd;color:#666;cursor:not-allowed}
-#score{display:none;margin-top:12px;font-weight:bold;font-size:18px}
+.locked{background:#e0e0e0;color:#888;cursor:not-allowed}
+#scoreBox{display:none;margin-top:15px;font-weight:bold;font-size:18px;background:#fff3e0;padding:8px;border-radius:8px}
 .grid{display:none;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
-.cell{height:50px;background:#ffe0b2;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;cursor:pointer}
-.aboutBox{max-width:700px;margin:35px auto;text-align:left;background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-.aboutBox h2{color:#e65100;margin-top:0}
+.cell{height:52px;background:#ffe0b2;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;cursor:pointer}
+.aboutBox{max-width:700px;margin:40px auto 20px auto;text-align:left;background:#ffffff;padding:22px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.aboutBox h2{color:#e65100;margin-top:0;text-align:center}
+a{color:#e65100;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
+
 <h1>🍬 Punjabi Toffee Crush 🍬</h1>
-<p>By Deepali Tokhi, Delhi</p>
+<p>Learn Punjabi With Fun - By Deepali Tokhi, Delhi</p>
 
 <div class="gameBox">
-<button id="btn1" class="levelBtn unlocked" onclick="startGame(1)">Level 1 - Toffee Match 🔓</button>
-<button id="btn2" class="levelBtn locked" onclick="tryLevel(2)">Level 2 - Bindi ੳ ਅ ੲ 🔒 Locked</button>
-<button id="btn3" class="levelBtn locked" onclick="tryLevel(3)">Level 3 - Akhar ਕ ਖ ਗ 🔒 Locked</button>
-<button id="btn4" class="levelBtn locked" onclick="tryLevel(4)">Level 4 - Numbers ੧ ੨ ੩ 🔒 Locked</button>
-<button id="btn5" class="levelBtn locked" onclick="tryLevel(5)">Level 5 - Words ਮਾਂ ਪਾਣੀ 🔒 Locked</button>
-<button id="btn6" class="levelBtn locked" onclick="tryLevel(6)">Level 6 - Mix Master 🔒 Locked</button>
+<button id="btn1" class="levelBtn unlocked" onclick="openLevel(1)">Level 1 - Toffee Match 🔓</button>
+<button id="btn2" class="levelBtn locked" onclick="openLevel(2)">Level 2 - Bindi Fall ੳ ਅ ੲ 🔒</button>
+<button id="btn3" class="levelBtn locked" onclick="openLevel(3)">Level 3 - Akhar Match ਕ ਖ ਗ 🔒</button>
+<button id="btn4" class="levelBtn locked" onclick="openLevel(4)">Level 4 - Numbers ੧ ੨ ੩ 🔒</button>
+<button id="btn5" class="levelBtn locked" onclick="openLevel(5)">Level 5 - Words ਮਾਂ ਪਾਣੀ 🔒</button>
+<button id="btn6" class="levelBtn locked" onclick="openLevel(6)">Level 6 - Mix Master 🔒</button>
 
-<div id="score">Score: 0</div>
-<div id="grid" class="grid"></div>
-<p id="msg" style="color:green;font-weight:bold"></p>
+<div id="scoreBox">Score: 0</div>
+<div id="gameGrid" class="grid"></div>
+<p id="msg" style="color:green;font-weight:bold;margin-top:10px"></p>
 <p id="unlockMsg" style="color:#e65100;font-weight:bold"></p>
 </div>
 
 <div class="aboutBox">
 <h2>About This Game</h2>
-<p><b>Punjabi Toffee Crush</b> by <b>Deepali Tokhi</b> for kids 3-10. Learn Gurmukhi ੳ ਅ ੲ, ਕ ਖ ਗ, ੧ ੨ ੩. 100% safe, no login.</p>
-<p style="text-align:center"><a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="contact.html">Contact</a> | <a href="blog.html">Blog</a></p>
+<p><b>Punjabi Toffee Crush</b> is a free educational game made by <b>Deepali Tokhi</b> from Delhi for kids age 3-10 years.</p>
+<p>Kids can learn Punjabi Gurmukhi ੳ ਅ ੲ, Akhar ਕ ਖ ਗ, Numbers ੧ ੨ ੩ and simple words like ਮਾਂ, ਪਾਣੀ, ਘਰ in a fun way.</p>
+<p>This game is 100% safe. No login, no personal data. Made with love for India, Canada, UK, USA, Australia.</p>
+<hr>
+<p style="text-align:center">
+<a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact Us</a> | <a href="blog.html">Blog</a>
+</p>
+<p style="text-align:center;font-size:12px;color:#777">Made with ❤️ by Deepali Tokhi<br>deepali.tokhi.game@gmail.com<br>© 2026 Punjabi Toffee Crush</p>
 </div>
 
 <script>
 let score = 0;
 let currentLevel = 1;
-let maxUnlocked = localStorage.getItem("punjabiLevel") ? parseInt(localStorage.getItem("punjabiLevel")) : 1;
-let letters = ["ੳ","ਅ","ੲ","ਕ","ਖ","ਗ","੧","੨","੩","ਮਾਂ"];
+let maxUnlock = parseInt(localStorage.getItem("punjabi_unlock") || "1");
+let letters = ["ੳ","ਅ","ੲ","ਕ","ਖ","ਗ","ਘ","੧","੨","੩","ਮਾਂ","ਪਾਣੀ"];
 
-function updateLocks(){
+function updateButtons(){
   for(let i=1;i<=6;i++){
     let b = document.getElementById("btn"+i);
-    if(i <= maxUnlocked){
+    if(i <= maxUnlock){
       b.className = "levelBtn unlocked";
-      b.innerText = b.innerText.replace(" 🔒 Locked","").replace(" 🔓","") + " 🔓";
+      b.innerHTML = b.innerHTML.replace(" 🔒","").replace(" 🔓","") + " 🔓";
+      if(i==1) b.innerHTML = "Level 1 - Toffee Match 🔓";
+      if(i==2) b.innerHTML = "Level 2 - Bindi Fall ੳ ਅ ੲ 🔓";
+      if(i==3) b.innerHTML = "Level 3 - Akhar Match ਕ ਖ ਗ 🔓";
+      if(i==4) b.innerHTML = "Level 4 - Numbers ੧ ੨ ੩ 🔓";
+      if(i==5) b.innerHTML = "Level 5 - Words ਮਾਂ ਪਾਣੀ 🔓";
+      if(i==6) b.innerHTML = "Level 6 - Mix Master 🔓";
     } else {
       b.className = "levelBtn locked";
-      if(!b.innerText.includes("Locked")) b.innerText += " 🔒 Locked";
+      if(!b.innerHTML.includes("🔒")) b.innerHTML += " 🔒";
     }
   }
 }
 
-function tryLevel(l){
-  if(l > maxUnlocked){
-    document.getElementById("msg").innerText = "🔒 Pehle Level " + (l-1) + " complete karo! 50 score chahiye!";
+function openLevel(level){
+  if(level > maxUnlock){
+    document.getElementById("msg").innerText = "🔒 Pehle Level " + (level-1) + " complete karo! 50 score chahiye";
     return;
   }
-  startGame(l);
-}
-
-function startGame(level){
   currentLevel = level;
-  let grid = document.getElementById("grid");
-  let scoreDiv = document.getElementById("score");
-  grid.style.display = "grid";
-  scoreDiv.style.display = "block";
-  document.getElementById("msg").innerText = "Level " + level + " Started - ਸ਼ਾਬਾਸ਼!";
   score = 0;
-  scoreDiv.innerText = "Score: 0";
+  document.getElementById("scoreBox").style.display = "block";
+  document.getElementById("gameGrid").style.display = "grid";
+  document.getElementById("scoreBox").innerText = "Score: 0";
+  document.getElementById("msg").innerText = "Level " + level + " Started - ਸ਼ਾਬਾਸ਼!";
+  document.getElementById("unlockMsg").innerText = "";
+
+  let grid = document.getElementById("gameGrid");
   grid.innerHTML = "";
   for(let i=0;i<24;i++){
     let cell = document.createElement("div");
@@ -88,19 +99,19 @@ function startGame(level){
     cell.onclick = function(){
       this.style.background = "#a5d6a7";
       score += 10;
-      document.getElementById("score").innerText = "Score: " + score;
-      if(score >= 50 && currentLevel == maxUnlocked && maxUnlocked < 6){
-        maxUnlocked++;
-        localStorage.setItem("punjabiLevel", maxUnlocked);
-        document.getElementById("unlockMsg").innerText = "🎉 Wow! Level " + maxUnlocked + " Unlock Ho Gaya!";
-        updateLocks();
+      document.getElementById("scoreBox").innerText = "Score: " + score;
+      if(score >= 50 && currentLevel === maxUnlock && maxUnlock < 6){
+        maxUnlock++;
+        localStorage.setItem("punjabi_unlock", maxUnlock);
+        document.getElementById("unlockMsg").innerText = "🎉 Wow! Level " + maxUnlock + " Unlock Ho Gaya! Neeche dekho!";
+        updateButtons();
       }
     };
     grid.appendChild(cell);
   }
 }
 
-updateLocks();
+updateButtons();
 </script>
 </body>
 </html>
