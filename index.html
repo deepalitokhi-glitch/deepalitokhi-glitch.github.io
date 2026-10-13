@@ -14,8 +14,13 @@
 <div class="box" id="menu"><h1 style="color:#FF6F00;font-size:36px">ਪੰਜਾਬੀ ਟਾਫੀ</h1><p style="color:#E91E63;font-weight:900">Lock System - Level win karke kholo 🔒</p><div id="levelBtns"></div><button class="btn" style="background:#607D8B;margin-top:20px" onclick="resetProgress()">Reset Game 🔄</button></div>
 <div class="box hidden" id="game"><div style="display:flex;justify-content:space-between;font-weight:900"><span id="lv">Level 1</span><span id="sc" style="color:#E91E63">0/9</span></div><div class="bar"><div id="pf" class="f"></div></div><p id="msg" style="color:#E91E63;font-weight:900;margin:8px 0"></p><div id="area"></div><button class="btn" style="background:#9E9E9E" onclick="showMenu()">Menu 🏠</button></div>
 <div id="completeModal" class="hidden"><div id="completeBox"><div style="font-size:60px">🎉</div><h2 style="color:#FF6F00" id="modalTitle">ਸ਼ਾਬਾਸ਼ ਜੀ!</h2><p id="completeText" style="font-size:19px;font-weight:800">Level Complete!</p><p style="font-size:30px">⭐⭐⭐</p><p id="nextPreview" style="background:#E8F5E9;border:2px dashed #4CAF50;border-radius:12px;padding:10px;margin:10px 0;font-weight:800;color:#2E7D32"></p><div id="normalBtns"><button class="btn" style="background:#4CAF50;font-size:20px" onclick="goNext()">Next Level →</button><button class="btn" style="background:#FF9800" onclick="replayNow()">Replay</button><button class="btn" style="background:#9E9E9E" onclick="showMenu()">Menu</button></div><div id="finalBtns" class="hidden"><button class="btn" style="background:#4CAF50" onclick="showMenu()">Main Menu</button><button class="btn" style="background:#FFD700;color:#000" onclick="firstTap(1)">Fir Se Khelo</button></div></div></div>
-<footer style="text-align:center;padding:22px;background:#222;color:#fff;margin:20px auto;max-width:650px;border-radius:16px;"><a href="about.html" style="color:#ffcc00;margin:0 8px;text-decoration:none">About Us</a> | <a href="privacy.html" style="color:#ffcc00;margin:0 8px;text-decoration:none">Privacy Policy</a> | <a href="contact.html" style="color:#ffcc00;margin:0 8px;text-decoration:none">Contact Us</a><p style="margin-top:10px;font-size:12px;color:#aaa">© 2026 Punjabi Toffee Crush - Made with Love for Punjab</p></footer><a href="blog.html">Blog</a>
-<script>
+<footer style="text-align:center; background:#222; padding:15px; margin-top:20px;">
+  <a href="about.html" style="color:#ffcc00; margin:10px; text-decoration:none;">About Us</a> |
+  <a href="privacy.html" style="color:#ffcc00; margin:10px; text-decoration:none;">Privacy Policy</a> |
+  <a href="contact.html" style="color:#ffcc00; margin:10px; text-decoration:none;">Contact Us</a> |
+  <a href="blog.html" style="color:#ffcc00; margin:10px; text-decoration:none;">Blog</a>
+  <p style="color:#aaa; font-size:12px; margin-top:10px;">© 2026 Punjabi Toffee Crush - Made with Love for Punjab</p>
+</footer>
 let level=1,score=0,sel=[],board=[],ac,fallInterval=null,fallTimeouts=[],voiceUnlocked=false;
 function getUnlocked(){let u=localStorage.getItem('punjabi_level');return u?parseInt(u):1;}
 function setUnlocked(l){if(l>getUnlocked())localStorage.setItem('punjabi_level',l);}
